@@ -17,15 +17,22 @@ export class AppComponent {
 
   filterUsers1: any;
 
-  userOverTime:any[] = []
+  userOverTime: any[] = []
 
-  userPostCount:any[];
+  userPostCount: any[];
+
+  usersAndPosts: any;
+
+  userDataPostCount: any[]
 
   ngOnInit() {
     this.service.getAllUsers().subscribe(r => this.allUsers = r);
-    this.service.getFilteredUserCount().subscribe(r => {this.filterUsers1 = r});
-    this.service.getUserOverTime().subscribe(r => {this.userOverTime.push(r)});
-    this.service.getUserPostCount().subscribe(r => { this.userPostCount=r});
+    this.service.getFilteredUserCount().subscribe(r => { this.filterUsers1 = r });
+    this.service.getUserOverTime().subscribe(r => { this.userOverTime.push(r) });
+    this.service.getUserPostCount().subscribe(r => { this.userPostCount = r });
+    this.service.getUsersAndPosts().subscribe(r => { this.usersAndPosts = r });
+    this.service.getUserDataPlusPostCount().subscribe(r => { this.userDataPostCount = r });
+  
   }
 
 
